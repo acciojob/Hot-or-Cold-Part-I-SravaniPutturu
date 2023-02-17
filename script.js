@@ -1,11 +1,26 @@
 //your code here
-
-var btn = document.getElementById("btn");
-var numPtag = document.getElementById("num")
-
-function generateRandomNumber(){
-	var no = Math.floor(Math.random() * 40) - 20;
-	numPtag.textContent = no;
+var randomNum;
+var input;
+randomNumGenerator()
+function randomNumGenerator(){
+	randomNum = Math.floor(Math.random() * 41) - 20;
+	document.getElementById("num").innerText = randomNum;
+	guessNum();
+	print();
+	
 }
 
-btn.addEventListener('click', generateRandomNumber)
+function guessNum(){
+	input = Number(document.getElementById("guess").value);
+	
+}
+
+
+function print() {
+	
+	if(Math.abs(randomNum - input) <= 5){
+	   document.getElementById("respond").innerText = "Hot";
+    }else{	 
+	  document.getElementById("respond").innerHTML= "cold";
+    }
+}
